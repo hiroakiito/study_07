@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title>Google翻訳</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h2>Google翻訳</h2>
+        <form action="index.html"></form>
+        <label for="">翻訳前言語</label>
+        <select name="example" id="origin-lang">
+            <option value="en">英語</option>
+            <option value="ja">日本語</option>
+        </select>
+        <br>
+            <label for="">原文</label>
+            <textarea name="" id="origin" cols="30" rows="10"></textarea>
+            <br>
+
+            <label for="">変換言語</label>
+        　　    <select name="example" id="trans-lang">
+                    <option value="ja">日本語</option>
+                    <option value="en">英語</option>
+                </select>
+                <br>
+            <label for="">翻訳結果</label>
+            <textarea name="" id="trance_ja" cols="30" rows="10"></textarea>
+        </form>
+        <button type="button" id="submitBtn">翻訳実行</button>
+        <script type="text/javascript" src="./eel.js"></script>
+        <script>
+            //イベント設定
+            submitBtn.addEventListener('click', (e) => {
+                text = document.getElementById("origin").value;
+                origin_lang = document.getElementById("origin-lang").value;
+                trans_lang = document.getElementById("trans-lang").value;
+                eel.translate_ja(text, origin_lang, trans_lang);
+            })
+            eel.expose(set_ja)
+            function set_ja(result_text) {
+                trance_ja.value = result_text;
+            }
+            // order_num.addEventListener('blur', (e) => {
+            //     if (order_num.disabled == false) {
+            //         orderNumKeyDown();
+            //         if (item_name.value == "") {
+            //             order_num.focus();
+            //         }
+            //     }
+            // })
+            // order_num.addEventListener('keypress', (e) => {
+            //     if (e.keyCode === 13) {
+            //         orderNumKeyDown();
+	        //     } 
+            // })
+            // amount.addEventListener('focus', (e) => {
+            //     if (amount.disabled == false) {
+            //         pay.removeAttribute("disabled");
+            //     }
+            // })
+            // amount.addEventListener('blur', (e) => {
+            //     if (amount.disabled == false) {
+            //         mountKeyDown();
+            //         if (total_price.value == "") {
+            //             amount.focus();
+            //         }
+            //     }
+            // })
+            // amount.addEventListener('keypress', (e) => {
+            //     if (e.keyCode === 13) {
+            //         mountKeyDown();
+	        //     } 
+            // })
+            // pay.addEventListener('blur', (e) => {
+            //     if (pay.disabled == false) {
+            //         payKeyDown();
+            //     }
+            // })
+            // pay.addEventListener('keypress', (e) => {
+            //     if (e.keyCode === 13) {
+            //         payKeyDown();
+	        //     } 
+            // })
+
+            // //関数定義
+            // // 注文番号入力確定後処理
+            // function orderNumKeyDown() {
+            //     eel.order_input(order_num.value);
+            // }
+            // // 数量入力確定後処理
+            // function mountKeyDown() {
+            //     eel.calc(order_num.value, price.value, item_name.value, amount.value);
+            // }
+            // // 支払い金額入力後処理
+            // function payKeyDown() {
+            //     eel.make_recept(order_num.value, price.value, item_name.value, amount.value, total_price.value, pay.value);
+            // }
+
+            // //Python側で呼び出す関数
+            // // ログテキストエリア出力処理
+            // eel.expose(view_log_js)
+            // function view_log_js(text){
+            //     search_result.value += text + "\n";
+            // }
+            // // 入力した注文番号が有効な場合、商品名と価格を表示する
+            // eel.expose(set_item_js)
+            // function set_item_js(mst_item_name, mst_item_price, search_result) {
+            //     item_name.value = mst_item_name;
+            //     price.value = mst_item_price;
+            //     order_num.setAttribute("disabled", true);
+            //     pay.removeAttribute("disabled");
+            //     amount.focus();
+            // }
+            // // 入力した数量が有効な場合、合計金額を表示する
+            // eel.expose(set_total_price_js)
+            // function set_total_price_js(total) {
+            //     total_price.value = total;
+            //     total_price.setAttribute("disabled", true);
+            //     amount.setAttribute("disabled", true);
+            //     pay.focus();
+            // }
+            // // 入力した数量が有効な場合、お釣りを表示する
+            // eel.expose(set_change_js)
+            // function set_change_js(change_price) {
+            //     change.value = change_price;
+            //     pay.setAttribute("disabled", true);
+            // }
+        </script>
+    </body>
+</html>

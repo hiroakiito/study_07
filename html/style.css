@@ -1,0 +1,14 @@
+form {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
